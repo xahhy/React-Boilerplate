@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>React - Template</title>
+    <link rel="stylesheet" type="text/css" href="../../css/main.css">
+    <script src="../../js/react.min.js"></script>
+    <script src="../../js/react-dom.min.js"></script>
+    <script src="../../js/browser.min.js"></script>
+</head>
+<body>
+
+    <div id="container"></div>
+
+    <script type="text/babel">
+
+        //Create A Component
+        //<HHY />
+        var Hhy = React.createClass({
+            render: function () {
+                return (
+                    <div>
+                        <h3>This is a simple component!</h3>
+                        <p>This is a simple paragraph</p>
+                    </div>
+                );
+            }
+        });
+
+        //Use props to render the component
+        var Movie = React.createClass({
+            render: function () {
+                return (
+                    <div>
+                        <h1>{this.props.title}</h1>
+                        <h2>{this.props.genre}</h2>
+                    </div>
+                );
+            }
+        });
+
+        var Comment = React.createClass({
+            edit: function () {
+                alert("Editing comment!");
+            },
+            remove: function () {
+                alert("Removing comment!");
+            },
+            render: function () {
+                return (
+                    <div className="commentContainer">
+                        <div className="commentText">{this.props.children}</div>
+                        <button onClick={this.edit} className="button-primary">Edit</button>
+                        <button onClick={this.remove} className="button-danger">Remove</button>
+                    </div>
+                );
+            }
+        });
+
+        ReactDOM.render(
+//            <div>
+//                <Movie title="Avatar" genre="action"/>
+//                <Movie title="The Notebook" genre="romance"/>
+//                <Movie title="The Captain America" genre="action"/>
+//            </div>
+            <div className="board">
+                <Comment>Hey now</Comment>
+                <Comment>Fuck</Comment>
+                <Comment>HHY</Comment>
+            </div>
+            ,
+            document.getElementById('container')
+        );
+    </script>
+
+</body>
+</html>
